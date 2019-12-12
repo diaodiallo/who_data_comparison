@@ -1,0 +1,30 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\charts\Settings\ChartsDefaultColors;
+use Drupal\charts\Util\Util;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
+
+
+/**
+ * Implements hook_views_data().
+ */
+function charts_overrides_views_data() {
+  $data['views']['exposed_label_field_form'] = [
+    'title' => t('Exposed Label Field'),
+    'help' => t('Select field for X-Axis.'),
+    'field' => [
+      'id' => 'field_exposed_label_field',
+    ],
+  ];
+  $data['views']['exposed_who_field_form'] = [
+    'title' => t('Exposed WHO Field'),
+    'help' => t('This field is for the WHO data.'),
+    'field' => [
+      'id' => 'field_exposed_who_field',
+    ],
+  ];
+
+  return $data;
+}
